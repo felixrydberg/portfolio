@@ -1,7 +1,7 @@
 * {
      padding: 0;
      margin: 0;
-     font: 1rem 'Mulish', sans-serif;
+     font:1rem 'Mulish', sans-serif;
      color: rgb(240, 240, 240);
 }
 
@@ -10,135 +10,75 @@ html {
 }
 
 body {
-    background: #0d1117;
+    background: #141a24;
+    min-height: 100vh;
 }
 
-.grid-coverer {
+.grid-container {
     display: grid;
     grid-template: auto auto auto / auto;
+}
+
+h1 {
+    font-size: 1.5rem;
 }
 
 /* Header */
 
 header{
     grid-row: 1;
-}
-
-header picture{
-    grid-column: 1;
-    height: 100%;
-
-}
-
-header picture img{
-    object-fit: scale-down;
-    height: 100%;
-}
-
-header nav{
     display: grid;
-    grid-template: 3rem / 3rem auto;
-    background: #141a24;
+    grid-template: 6rem / auto auto auto;
 }
 
-header nav .nav-buttons{
-    grid-column: 2;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
+.nav-one {
+    grid-column: 1;
 }
 
-header nav .nav-buttons li {
+.nav-two {
+    grid-column: 3;
+}
+
+.nav-one ul, .nav-two ul{
     list-style: none;
+    display: grid;
+    grid-template: auto / auto auto;
+    height: 100%;
+}
+
+.nav-one ul li, .nav-two ul li {
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    align-items: center;
 }
 
-header nav .nav-buttons li a, header nav .nav-dropdown .nav-dropbutton{
-    display: block;
-    padding: 0.3rem 1rem 0.3rem 1rem;
-    margin: 0 0.3rem 0 0.3rem;
-    border-radius: 0.5rem;
-    border: 0.1rem solid #242f42;
+.nav-one ul li a, .nav-two ul li a {
     text-decoration: none;
-
 }
-
-header nav .nav-buttons li a:hover, .nav-dropbutton:hover{
-    background: #0d1117;
-}
-
-.nav-dropbutton {
-    background-color: #141a24;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.nav-dropbutton span {
-    color: #2d3c55;
-}
-
-.nav-dropdown{
-    position: relative;
-    display: inline-block;
-}
-
-.nav-dropcontent {
-    display: none;
-    position: absolute;
-    right: 0;
-    overflow: auto;
-}
-
-.nav-dropcontent ul{
-    border-radius: 0.5rem;
-    border: 0.1rem solid #242f42;
-    background: #141a24;
-}
-
-.nav-dropcontent ul li{
-    border: none;
-}
-
-header nav .nav-dropcontent ul li a {
-    color: rgb(240, 240, 240);
-    text-decoration: none;
-    display: block;
-    border: none;
-}
-
-.display-block {
-    display: block;
-}
-
-
-
-
-
 
 /* Main */
 
 main {
     grid-row: 2;
     display: grid;
-    grid-template: auto auto / auto;
+    grid-template: auto auto auto/ auto;
 }
 
-main figure {
+main .banner, main .banner-portfolio {
     grid-row: 1;
     display: grid;
     grid-template: auto 6rem auto/ auto 12rem auto;
     height: calc(100vh - 4rem);
-    background-color: #222;
     background: url("../image/banner/500x800.png");
     background-size: cover;
     background-position: center;
 }
 
-main figure article {
+.main-portfolio .banner-portfolio {
+    height: 20vh;
+}
+
+main .banner article{
     grid-row: 2;
     grid-column: 2;
     display: flex;
@@ -148,7 +88,7 @@ main figure article {
     align-items: center;
 }
 
-main figure article p {
+main .banner article p{
     text-align: center;
     background: rgba(100, 124, 124, 0.7);
     border: 0.1rem solid white;
@@ -157,24 +97,10 @@ main figure article p {
 
 }
 
-main #about {
-    height: 100vh;
-    display: grid;
-    grid-template: 7rem auto / 20% auto 20%;
+main .article{
+    padding: 3rem 2rem 0 2rem;
 }
 
-main #about h1 {
-    grid-row: 1;
-    grid-column: 2;
-    font:2rem 'Mulish', sans-serif;
-    padding: 2rem 0 0 0;
-}
-
-main #about p {
-    grid-row: 2;
-    grid-column: 2;
-    padding: 0 0 2rem 0;
-}
 
 /* Footer */
 
@@ -182,18 +108,15 @@ footer{
     grid-row: 3;
 }
 
-@media (min-width: 512px) {
+@media (min-width: 500px) {
     /* Header */
-
-    header nav .nav-buttons{
-        justify-content: left;
-    }
 
     /* Main */
     
-        main figure{
+        main .banner{
             background: url("../image/banner/1024x800.png");
             background-size: cover;
+            background-position: center;
         }
     
     /* Footer */
@@ -204,8 +127,9 @@ footer{
 
     /* Main */
     
-    main figure{
+    main .banner{
         background: url("../image/banner/1920x1200.png");
+        background-position: center;
         background-size: cover;
     }
 
@@ -217,9 +141,10 @@ footer{
 
     /* Main */
     
-    main figure{
+    main .banner{
         background: url("../image/banner/2560x1600.png");
         background-size: cover;
+        background-position: center;
     }
 
 /* Footer */
